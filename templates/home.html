@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a name="top"></a>
+
+<H1 style="color:darkblue;" >Using Satellite Data To Track Human Footprints In The Amazon Rainforests</H1>
+<img src="{{ url_for('static', filename='images/image4.jpg') }}"  alt="Deforestation" width="1350" height="350"><br><br>
+<!-- Relative linking -->
+<a href="{{url_for('index')}}">Home</a>
+<a href = "{{url_for('stats')}}">Statistical Data</a>
+<a href="{{url_for('upload')}}">Input File
+</a>
+<a href="{{url_for('team')}}">Team Members
+</a>
+
+<H2>About The Project:</H2>
+<div class="tab">
+        <button class="tablinks" onclick="pro(event, 'projectvision')">Project Vision</button>
+        <button class="tablinks" onclick="pro(event, 'projectgoal')">Project Goal</button>
+        <button class="tablinks" onclick="pro(event, 'overalldesc')">Overall Description</button>
+      </div>
+
+      <!-- Tab content -->
+      <div id="projectvision" class="tabcontent">
+        <h3>Project Vision:</h3>
+        <p>Every minute,the world loses an area of forest the size of 48 foootball fields.And deforestation in the Amazon Basin accounts for the largest share,contributing to reduced biodversity , habitat lost , climate change, and other devastating effects.But better data about the location of deforestation and human encroachment on forests can help governments and local stakeholders respond more quickly and effectively. Labelling satellite image chips with atmospheric conditions and various classes of land cover/land use will help in building algorithms that will help the global community to better understand where,how and why deforestation happens all over the world - and ultimately how to respond.</p>
+      </div>
+
+      <div id="projectgoal" class="tabcontent">
+        <h3>Project Goal:</h3>
+        <ol>
+                <li>Detect useful objects like water,road,selective logging, and more through satellite image using machine learning.</li>
+                <li>Create a user interface satellite images can be uploaded.</li>
+                <li>Maximize the F2 score for evaluation of the model.</li>
+                <li>Handle the partial clouds and haze images to not affect the labelling.</li>
+            </ol>
+      </div>
+
+      <div id="overalldesc" class="tabcontent">
+        <h3>Overall Description:</h3>
+        <p>This project is an attempt to apply data science and machine learning techniques on the satellite image chips to label them. For obtaining good results for real world purposes, a complex dataset with various atmospheric conditions is collected. The class labels for this task represent a reasonable subset of phenomena of interest in the Amazon basin. The labels can broadly be broken into three groups: atmospheric conditions, common land cover/land use phenomena, and rare land cover/land use phenomena.<br>
+            Each chip will have one and potentially more than one atmospheric label and zero or more common and rare labels. Chips that are labeled as cloudy should have no other labels, but there may be labeling errors. The chip labels are inherently noisy due to the labeling process and ambiguity of features and part of the challenge is to figure out how to work with noisy data.<br>
+            Initial EDA – Image Processing will be done before training. This includes data augmentation techniques like rotation, scaling, etc. and data analysis to develop the intuition for model architecture. As the data is very noisy, we will also attempt to find mis-tagged images. All the visualizations will be done through R, matplotlib and seaborn. The visualization and statistics function will provide basic insight into the data and will help in training phase. After the data preparation, we will build and train the model, evaluate our results using F2 score and optimize our model accordingly. Then, we will integrate the model with the web application using flask.<br>
+        </p>
+      </div>
+      <script>
+            function pro(evt, cityName) {
+              var i, tabcontent, tablinks;
+              tabcontent = document.getElementsByClassName("tabcontent");
+              for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+              }
+              tablinks = document.getElementsByClassName("tablinks");
+              for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+              }
+              document.getElementById(cityName).style.display = "block";
+              evt.currentTarget.className += " active";
+            }
+            </script>
+
+<img src="{{ url_for('static', filename='images/img1.jpg') }}"  alt="Deforestation" width="1350" height="350"><br><br>
+<a href = "#top" >Top </a>
+
+{% endblock %}

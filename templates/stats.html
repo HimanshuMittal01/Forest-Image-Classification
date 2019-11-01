@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a name="top"></a>
+<a href="{{url_for('index')}}">Home</a>
+<h1>Rainforest Facts:</h1>
+<ol>
+   <li>We are losing Earth's greatest biological treasures just as we are beginning to appreciate their true value. Rainforests once covered 14% of the earth's land surface; now they cover a mere 6% and experts estimate that the last remaining rainforests could be consumed in less than 40 years</li>
+   <li>Experts estimates that we are losing 137 plant, animal and insect species every single day due to rainforest deforestation. That equates to 50,000 species a year. As the rainforest species disappear, so do many possible cures for life-threatening diseases. Currently, 121 prescription drugs sold worldwide come from plant-derived sources. While 25% of Western pharmaceuticals are derived from rainforest ingredients, less that 1% of these tropical trees and plants have been tested by scientists.</li>
+   <li>The data compiled by the World Resources Institute reveals that the planet has already lost 80 percent of its forest cover to deforestation, and going by the alarming rate at which the trees are being cut, it won't take much time to reach the cent percent mark.</li>
+</ol>
+<img src="{{ url_for('static', filename='images/stats.jpg') }}"  alt="Deforestation" width="1350" height="350"><br><br>
+
+
+<a href = "#top" >Top </a>
+
+{% endblock %}
